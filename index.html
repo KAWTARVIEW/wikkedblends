@@ -1,128 +1,807 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HUNANIMA - Machines Agricoles Simples</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fefefe;
-      color: #333;
-    }
-    header {
-      background-color: #2e7d32; /* Vert foncé */
-      color: #fdd835; /* Jaune vif */
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-    nav {
-      background-color: #fdd835;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #2e7d32;
-    }
-    .hero {
-      background: url('https://i.pinimg.com/550x/a9/df/51/a9df5172829f8c05f5b92f97553d41ae.jpg') no-repeat center center/cover;
-      height: 350px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 2px 2px 4px #000;
-      font-size: 2em;
-    }
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
-    section h2 {
-      color: #2e7d32;
-      margin-bottom: 20px;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .gallery img {
-      width: 280px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    footer {
-      background-color: #2e7d32;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-    footer p {
-      margin: 5px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wickedd Blends LLC | Artisanal Botanical & Craft Herbal Blends</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <style>
+        /* Botanical Forest, Copper & Parchment Palette */
+        :root {
+            --bg-parchment: #f6f3ed;
+            --bg-card: #ffffff;
+            --forest-deep: #173229;
+            --forest-accent: #2c5244;
+            --copper-primary: #c26d38;
+            --copper-soft: #f4e8df;
+            --text-dark: #1b201d;
+            --text-muted: #53625b;
+            --border-color: #dcd6cd;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-parchment);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Announcement Banner */
+        .top-notice {
+            background: var(--forest-deep);
+            color: #d9e5e0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.65rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-notice div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(246, 243, 237, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--forest-deep);
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+
+        .brand i {
+            color: var(--copper-primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--copper-primary);
+        }
+
+        .btn-copper {
+            background: var(--copper-primary);
+            color: #ffffff;
+            padding: 0.75rem 1.6rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(194, 109, 56, 0.25);
+        }
+
+        .btn-copper:hover {
+            background: #a95827;
+            transform: translateY(-2px);
+        }
+
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        #about {
+            padding: 5rem 0 3rem 0;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--copper-soft);
+            color: var(--copper-primary);
+            border: 1px solid rgba(194, 109, 56, 0.3);
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.3rem;
+            line-height: 1.15;
+            color: var(--forest-deep);
+            font-weight: 900;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-text h1 span {
+            color: var(--copper-primary);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-card h4 {
+            font-size: 1.25rem;
+            color: var(--forest-deep);
+            font-weight: 800;
+        }
+
+        .stat-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(23, 50, 41, 0.12);
+            border: 2px solid #ffffff;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 1.25rem 1.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .floating-card i {
+            color: var(--copper-primary);
+            background: var(--copper-soft);
+            padding: 0.75rem;
+            border-radius: 12px;
+        }
+
+        /* Interactive Showcase Deck Section */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 6rem auto 3rem auto;
+        }
+
+        .section-header span {
+            color: var(--copper-primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.35rem;
+            color: var(--forest-deep);
+            font-weight: 900;
+        }
+
+        .deck-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 6rem;
+        }
+
+        .deck-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .deck-tab-btn {
+            background: var(--bg-parchment);
+            border: 1px solid var(--border-color);
+            padding: 0.85rem 1.75rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .deck-tab-btn.active, .deck-tab-btn:hover {
+            background: var(--forest-deep);
+            color: #ffffff;
+            border-color: var(--forest-deep);
+        }
+
+        .deck-panel {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .deck-panel.active {
+            display: grid;
+        }
+
+        .panel-text h3 {
+            font-size: 2rem;
+            color: var(--forest-deep);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .panel-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .panel-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .panel-bullets li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            color: var(--forest-deep);
+        }
+
+        .panel-bullets li i {
+            color: var(--copper-primary);
+        }
+
+        .panel-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Services / Products Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--copper-primary);
+            box-shadow: 0 16px 32px rgba(194, 109, 56, 0.12);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-card-body {
+            padding: 2rem;
+        }
+
+        .service-card-body h3 {
+            font-size: 1.25rem;
+            color: var(--forest-deep);
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+        }
+
+        .service-card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            margin-bottom: 6rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: var(--forest-deep);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 2rem;
+            align-items: flex-start;
+        }
+
+        .info-row i {
+            color: var(--copper-primary);
+            background: var(--copper-soft);
+            padding: 1rem;
+            border-radius: 14px;
+        }
+
+        .info-row label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .info-row strong {
+            font-size: 1rem;
+            color: var(--forest-deep);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            background: var(--bg-parchment);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-dark);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--copper-primary);
+            background: #ffffff;
+        }
+
+        .submit-btn {
+            background: var(--forest-deep);
+            color: #ffffff;
+            border: none;
+            padding: 1.1rem;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--copper-primary);
+        }
+
+        /* Modal Privacy Policy */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(23, 50, 41, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-body {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 750px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .modal-body h3 {
+            color: var(--forest-deep);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body h4 {
+            color: var(--forest-deep);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        footer {
+            background: var(--forest-deep);
+            color: #a3b8b0;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--copper-primary);
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            #about, .deck-panel, .contact-box {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>HUNANIMA</h1>
-    <p>Machines Agricoles Simples et Fiables</p>
-  </header>
-
-  <nav>
-    <a href="#about">À propos</a>
-    <a href="#gallery">Galerie</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="hero">
-    <p>Votre partenaire pour des machines agricoles durables</p>
-  </div>
-
-  <section id="about">
-    <h2>À propos de nous</h2>
-    <p>
-      Chez <strong>HUNANIMA</strong>, nous nous spécialisons dans la fabrication et la distribution de 
-      <strong>machines agricoles simples</strong> pour faciliter le travail des agriculteurs. 
-      Nos solutions combinent <em>durabilité, efficacité et innovation</em> afin de répondre aux besoins de toutes les exploitations.
-    </p>
-  </section>
-
-  <section id="gallery">
-    <h2>Nos Machines</h2>
-    <div class="gallery">
-      <img src="http://ogden_images.s3.amazonaws.com/www.motherearthnews.com/images/2014/11/22234423/Boaz-Mini-Combine-jpg.jpg" alt="Mini moissonneuse">
-      <img src="https://krs-agro.ru/products/zagotovka_kormov/elho/19/7.jpg" alt="Machine agricole">
-      <img src="https://img.mod-network.net/files/images/6218ac69d37fb/SimpleFarmSilov1000_6222.jpg" alt="Équipement agricole simple">
+    <div class="top-notice">
+        <div><i data-lucide="leaf" size="15"></i> WICKEDD BLENDS LLC — Artisanal Botanical & Organic Herbal Blends</div>
+        <div>Cartersville, GA Studio</div>
     </div>
-  </section>
 
-  <section id="contact">
-    <h2>Contactez-nous</h2>
-    <p><strong>Email :</strong> admin@tyusex.shop</p>
-    <p><strong>Téléphone :</strong> +33 7 38 50 26 36</p>
-    <p><strong>Adresse :</strong> Avenue Baratier, Montmorency, 95160, France</p>
-  </section>
+    <header>
+        <div class="brand">
+            <i data-lucide="flame"></i> Wickedd Blends
+        </div>
+        <nav>
+            <a href="#about">Our Story</a>
+            <a href="#blends">Blend Collections</a>
+            <a href="#craft">Craft Process</a>
+            <a href="#contact" class="btn-copper">Order / Contact</a>
+        </nav>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 HUNANIMA - Tous droits réservés.</p>
-  </footer>
+    <div class="wrapper">
+        <!-- Hero Section -->
+        <section id="about">
+            <div class="hero-text">
+                <span class="hero-badge">Artisanal Craft Blending</span>
+                <h1>Pure Botanical Ingredients <span>Wicked Flavors</span></h1>
+                <p>Wickedd Blends LLC formulates handcrafted botanical tea infusions, specialty spices, organic herbs, and custom elixir blends in Cartersville, Georgia.</p>
 
+                <a href="#contact" class="btn-copper" style="padding: 1rem 2rem; display: inline-block;">Explore Wholesale & Retail</a>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Cartersville, GA</h4>
+                        <p>322 N Bartow St</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>100% Organic</h4>
+                        <p>Artisanal Formulations</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Small Batch</h4>
+                        <p>Hand-Crafted Quality</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="Artisanal loose leaf tea and organic herbs blending session">
+                <div class="floating-card">
+                    <i data-lucide="droplet" size="28"></i>
+                    <div>
+                        <strong style="color: var(--forest-deep); display: block;">Pure Craft Potency</strong>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Sustainably Sourced Herbs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Craft Process & Collection Deck -->
+        <section id="blends">
+            <div class="section-header">
+                <span>Botanical Excellence</span>
+                <h2>Craft Blend Showcase Deck</h2>
+            </div>
+
+            <div class="deck-container">
+                <div class="deck-tabs">
+                    <button class="deck-tab-btn active" onclick="switchDeck(0)">1. Herbal Tea Infusions</button>
+                    <button class="deck-tab-btn" onclick="switchDeck(1)">2. Culinary Spice Blends</button>
+                    <button class="deck-tab-btn" onclick="switchDeck(2)">3. Essential Oil Elixirs</button>
+                </div>
+
+                <!-- Panel 1 -->
+                <div class="deck-panel active">
+                    <div class="panel-text">
+                        <h3>Hand-Harvested Herbal Teas</h3>
+                        <p>Custom-formulated loose leaf tea blends crafted with chamomile, hibiscus, dried berries, and aromatic roots designed for wellness and taste.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Pesticide-Free Organic Leaf Selection</li>
+                            <li><i data-lucide="check-circle-2"></i> Small Batch Hand-Mixing</li>
+                            <li><i data-lucide="check-circle-2"></i> Eco-Friendly Aroma-Sealed Packaging</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=800&q=80" alt="Glass teapot steeping colorful botanical herbal tea" class="panel-img">
+                </div>
+
+                <!-- Panel 2 -->
+                <div class="deck-panel">
+                    <div class="panel-text">
+                        <h3>Artisanal Culinary Spices</h3>
+                        <p>Bold, small-batch spice blends crafted to elevate home cooking, barbecue rubs, and specialty gourmet culinary dishes.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Whole Spice Toasting & Grinding</li>
+                            <li><i data-lucide="check-circle-2"></i> Zero Artificial Preservatives</li>
+                            <li><i data-lucide="check-circle-2"></i> Rich, Vibrant Flavor Profiles</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80" alt="Assortment of vibrant ground spices and herbs in bowls" class="panel-img">
+                </div>
+
+                <!-- Panel 3 -->
+                <div class="deck-panel">
+                    <div class="panel-text">
+                        <h3>Aromatic Essential Elixirs</h3>
+                        <p>Soothing plant-based botanical oils blended for aromatherapy, stress relief, and holistic sensory experiences.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Pure Steam-Distilled Plant Extracts</li>
+                            <li><i data-lucide="check-circle-2"></i> Custom Essential Oil Synergies</li>
+                            <li><i data-lucide="check-circle-2"></i> Amber Glass Protection Containers</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80" alt="Amber glass essential oil droppers with lavender and herbs" class="panel-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services & Product Grid -->
+        <section id="craft">
+            <div class="section-header">
+                <span>Our Products</span>
+                <h2>Specialized Craft Offerings</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="Hot herbal tea cup with lemon and ginger slices">
+                    <div class="service-card-body">
+                        <h3>Signature Tea Blends</h3>
+                        <p>Relaxing night-time infusions and invigorating morning wellness herbal blends crafted from premium botanical cuts.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1509358271058-acd01cc9386a?auto=format&fit=crop&w=800&q=80" alt="Mortar and pestle crushing fresh spices and herbs">
+                    <div class="service-card-body">
+                        <h3>Custom Formulations</h3>
+                        <p>Tailor-made botanical mixtures, specialty dry rubs, and custom seasoning mixes for cafes, boutiques, and private labels.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=80" alt="Organic wellness products and botanical oil bottles">
+                    <div class="service-card-body">
+                        <h3>Wholesale Supply</h3>
+                        <p>Scalable bulk supply options for retailers, specialty markets, and wellness practitioners across Georgia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h2>Reach Out To Our Craft Team</h2>
+                    <p>Inquire about our product catalog, custom blends, or wholesale orders with Wickedd Blends LLC today.</p>
+
+                    <div class="info-row">
+                        <i data-lucide="mail"></i>
+                        <div>
+                            <label>Direct Support</label>
+                            <strong>contact@wickeddblends.org</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <i data-lucide="phone"></i>
+                        <div>
+                            <label>Telephone Line</label>
+                            <strong>+1 478 280 8106</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <label>Cartersville Location</label>
+                            <strong>322 N Bartow St Cartersville, GA, 30120-3110 United States</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="event.preventDefault();">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name / Business" required>
+                        <input type="text" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" placeholder="Email Address" required>
+                        <select required>
+                            <option value="" disabled selected>Select Inquiry Type</option>
+                            <option>Herbal Tea Inquiries</option>
+                            <option>Culinary Spice Rubs</option>
+                            <option>Wholesale & Custom Blends</option>
+                        </select>
+                    </div>
+                    <textarea rows="5" placeholder="Specify your blend preferences, bulk quantities, or general inquiry..." required></textarea>
+                    <button type="submit" class="submit-btn">Send Order Inquiry</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay">
+        <div class="modal-body">
+            <button class="close-btn" onclick="togglePrivacyModal()"><i data-lucide="x" size="24"></i></button>
+            <h3>Privacy Policy</h3>
+
+            <h4>1. Information Collection</h4>
+            <p>WICKEDD BLENDS LLC collects personal contact details submitted via form inquiries strictly to handle customer orders, wholesale inquiries, and product communications.</p>
+
+            <h4>2. Data Security & Confidentiality</h4>
+            <p>We maintain strict administrative safeguards to protect customer details. Personal information is kept strictly confidential and is never sold or shared with external parties.</p>
+
+            <h4>3. Compliance Contact</h4>
+            <p>For questions regarding our privacy practices, please contact contact@wickeddblends.org.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrapper">
+            <p>&copy;  WICKEDD BLENDS LLC. All rights reserved. Cartersville, GA.</p>
+            <div class="footer-links">
+                <a onclick="togglePrivacyModal()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function switchDeck(index) {
+            const buttons = document.querySelectorAll('.deck-tab-btn');
+            const panels = document.querySelectorAll('.deck-panel');
+
+            buttons.forEach((btn, i) => {
+                btn.classList.remove('active');
+                if (i === index) btn.classList.add('active');
+            });
+
+            panels.forEach((panel, i) => {
+                panel.classList.remove('active');
+                if (i === index) panel.classList.add('active');
+            });
+        }
+
+        function togglePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
